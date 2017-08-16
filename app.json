@@ -1,0 +1,35 @@
+{
+  "pages":[
+    "pages/detail/detail",
+    "pages/index/index",
+    "pages/search/search"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+        "pagePath": "pages/detail/detail",
+        "text": "推荐",
+        "iconPath": "pages/assets/img/tj-1.png",
+        "selectedIconPath": "pages/assets/img/tj.png"
+      },
+      {
+      "pagePath": "pages/index/index",
+      "text": "电影",
+      "iconPath": "pages/assets/img/dy-1.png",
+      "selectedIconPath": "pages/assets/img/dy.png"
+    },
+    {
+      "pagePath": "pages/search/search",
+      "text": "搜索",
+      "iconPath": "pages/assets/img/search-1.png",
+      "selectedIconPath": "pages/assets/img/search.png"
+    }
+    ]
+  }
+}

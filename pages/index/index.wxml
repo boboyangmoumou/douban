@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view class="content">
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" style="width:100%"/>
+    </swiper-item>
+  </block>
+</swiper>
+   <!-- <view class="movie">
+      <view class="pic">
+      <image src="{{movies[1].images.large}}"></image>
+      </view>
+      <view class="movie-info">
+        <view class="base-info">
+          <text>{{movies[1].alt}}</text>
+        </view>
+      </view>
+    </view>  -->
+  <view  wx:for="{{movies}}" wx:key="id" class="movieInfo">
+    <!-- <template  is="try" data="{{movies}}"></template> -->
+    <view class="pic">
+        <image src="{{item.images.medium}}"></image>
+    </view>
+    <view class="movieInfoText">
+      <view class="action">
+        <text>{{item.text}}</text>
+      </view>
+    </view>  
+  </view> 
+  <view class="bodyView">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+    </loading>
+  </view>
+</view>
