@@ -6,7 +6,7 @@
 </block> -->
 <scroll-view class="grid-container" scroll-top="100" scroll-y="true"
     bindscrolltolower="onscrolltolower" scroll-x="false">
-    <view class="content">
+    <view class="content" catchtap="onMovieTap">
       <view  wx:for="{{result}}" class="movieInfo">
         <view class="pic">
             <image src="{{item.images.medium}}" class="commandpig"></image>

@@ -19,6 +19,8 @@ function provessSubject(subject) {
   if (directorStr != "") {
     directorStr = directorStr.substring(0, directorStr.length - 2);
   }
+  //id
+  var Id = subject.id;
   //演员信息
   var casts = subject.casts;
   var castStr = "";

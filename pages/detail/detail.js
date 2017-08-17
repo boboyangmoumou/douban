@@ -13,7 +13,7 @@ Page({
     isEmpty: true,
     // flag:true
     isFreshing: false,
-    n:0
+    n:0,
   },
   onscrolltolower:function(e){
     console.log('more');
@@ -61,6 +61,10 @@ Page({
     var that = this;
     var results = moviesDouban.subjects;
     subjectUtil.provessSubjects(results);
+    for (var idx in results){
+      var ID1=results[idx].id;
+      console.log(ID1);
+    }
     var totalMovies = {}
     if(!this.data.isEmpty){
       totalMovies = this.data.result.concat(results);
@@ -76,54 +80,12 @@ Page({
     this.data.totalCount += 20;
     wx.stopPullDownRefresh();
   },
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  
+  onMovieTap:function(event){
+    // var movieID=event.currentTarget.dataset.result;
+    var movieID = event.currentTarget.dataset.ID1
+    wx.navigateTo({
+      url: '../moreInfo/moreInfo?id='+movieID,
+    })
   }
 })
