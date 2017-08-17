@@ -1,3 +1,4 @@
+var util = require('../../utils/feath.js')
 var subjectUtil = require("../../utils/foreach.js")
 Page({
   /**
@@ -5,46 +6,79 @@ Page({
    */
   data: {
     result:[],
-    goodsList:[],
-    scrollTop:0,
-    scroolHeight:0,
-    start:0,
-    hiddenEnd:true
+    pn:0,
+    navigateTitle: "",
+    requestUrl: "",
+    totalCount: 0,
+    isEmpty: true,
+    flag:true
   },
+  onscrolltolower:function(e){
+    console.log('more');
+    var nextUrl = this.data.requestUrl + 
+    "?start=" + this.data.totalCount + "&count=20";
+    util.http(nextUrl,this.processDoubanData)
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onReachBottom:function(){
     console.log("加载更多")
-    if(!this.data.hiddenEnd){
-      return;
-    }
-    this.showMovie();
+  },
+  onPullDownRefresh:function(event){
+    var refreshUrl= this.data.requestUrl + "?star=0&count=20";
+    this.data.result = {};
+    this.data.isEmpty = true;
+    this.data.page = flase;
+    this.data.totalCount = 0;
+    util.http(refreshUrl, this.processDoubanData);
+    wx.stopPullDownRefresh();
   },
   onLoad: function (options) {
-    this.recommend();
+    // this.recommend();
+    // var category = options.category;
+    // this.data.navigateTitle = category;
+    var dataUrl = "https://api.douban.com/v2/movie/top250";
+    this.data.requestUrl = dataUrl;
+    util.http(dataUrl, this.processDoubanData)
+  },
+  processDoubanData: function (moviesDouban){
+    // console.log(res.data.subjects);
+    var that = this;
+    var results = moviesDouban.subjects;
+    subjectUtil.provessSubjects(results);
+    var totalMovies = {}
+    if(!this.data.isEmpty){
+      totalMovies = this.data.result.concat(results);
+    }else{
+      totalMovies = results;
+      this.data.isEmpty=false;
+    }
+    that.setData({
+      result: totalMovies,
+      hidden: true
+    })
+    // wx.setStorage({
+    //   key:'key',
+    //   data:totalMovies
+    // }),
+    // wx.getStorage({
+    //   key: 'key',
+    //   success: function(res) {
+    //     console.log(res.data);
+    //     result: totalMovies;
+    //     hidden: true;
+    //   },
+    // })
+    // this.data.totalCount += 20;
+    // console.log(this.data.totalCount);
+      if(!this.page.flag){
+        this.data.totalCount += 20;
+      }
+    wx.stopPullDownRefresh();
   },
 
-  recommend: function () {
-    var that=this;
-    var _url = "https://api.douban.com/v2/movie/top250?start=i&count=20";
-    wx.request({
-      url:_url,
-      method: 'GET',
-      header: {
-        "Content-Type": "json"
-      },
-      success:function(res){
-        console.log(res.data.subjects);
-        var results = res.data.subjects;
-        subjectUtil.provessSubjects(results);
-        that.setData({
-          result:results,
-          hidden:true
-        })
-      }
-    })
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

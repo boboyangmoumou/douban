@@ -1,20 +1,30 @@
-<view class="content">
-    <view  wx:for="{{result}}" wx:key="id" class="movieInfo">
-    <view class="pic">
-        <image src="{{item.images.medium}}" class="commandpig"></image>
+<!-- <block wx:if="{{showLoading}}">
+   <view class="page-loading">
+   <image class="img-loading" src="/image/1.gif"></image>
+   <text>正在玩命加载中...</text>
+   </view>
+</block> -->
+<scroll-view class="grid-container" scroll-top="100" scroll-y="true"
+    bindscrolltolower="onscrolltolower" scroll-x="false">
+    <view class="content">
+      <view  wx:for="{{result}}" class="movieInfo">
+        <view class="pic">
+            <image src="{{item.images.medium}}" class="commandpig"></image>
+        </view>
+        <view class="movieInfoText">
+          <view class="action">
+            <text>{{item.text}}</text>
+          </view>
+        </view>  
+      </view>  
     </view>
-    <view class="movieInfoText">
-      <view class="action">
-        <text>{{item.text}}</text>
-      </view>
-    </view>  
-  </view>  
+</scroll-view>
+    <view class="bodyView">
+      <loading hidden="{{hidden}}" bindchange="loadingChange">
+      加载中...
+      </loading>
+    </view> 
 
-   <view class="bodyView">
-    <loading hidden="{{hidden}}" bindchange="loadingChange">
-    加载中...
-    </loading>
-  </view> 
-  <view class="movie-end" hidden="{{hiddenEnd}}">:-(这是最后一条数据了:-(</view>
-</view>
+
+
   

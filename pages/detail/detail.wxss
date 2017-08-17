@@ -15,6 +15,9 @@
   flex: 1;
   background-color: #eee;
 }
+.grid-container{
+  height: 1300rpx;
+}
 .movieInfo .movieInfoText .action{
   font-size: 25rpx;
   padding: 10rpx 10rpx 0 20rpx;
