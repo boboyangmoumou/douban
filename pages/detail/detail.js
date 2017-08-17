@@ -11,13 +11,22 @@ Page({
     requestUrl: "",
     totalCount: 0,
     isEmpty: true,
-    flag:true
+    // flag:true
+    isFreshing: false,
+    n:0
   },
   onscrolltolower:function(e){
     console.log('more');
     var nextUrl = this.data.requestUrl + 
     "?start=" + this.data.totalCount + "&count=20";
-    util.http(nextUrl,this.processDoubanData)
+    if(this.data.isFreshing===true){
+      return
+    }else{
+      console.log(this.data.n++);
+      util.http(nextUrl, this.processDoubanData);
+      this.data.isFreshing = true;
+    }
+    wx.stopPullDownRefresh();
   },
   
   /**
@@ -30,21 +39,25 @@ Page({
     var refreshUrl= this.data.requestUrl + "?star=0&count=20";
     this.data.result = {};
     this.data.isEmpty = true;
-    this.data.page = flase;
+    this.data.flag = true;
     this.data.totalCount = 0;
+    console.log("判断");
     util.http(refreshUrl, this.processDoubanData);
     wx.stopPullDownRefresh();
   },
   onLoad: function (options) {
-    // this.recommend();
-    // var category = options.category;
-    // this.data.navigateTitle = category;
     var dataUrl = "https://api.douban.com/v2/movie/top250";
     this.data.requestUrl = dataUrl;
-    util.http(dataUrl, this.processDoubanData)
+    if (this.data.isFreshing === true){
+      return
+    }else{
+      console.log(this.data.n++);
+      util.http(dataUrl, this.processDoubanData);
+      this.data.isFreshing;
+    }
+    wx.stopPullDownRefresh();
   },
   processDoubanData: function (moviesDouban){
-    // console.log(res.data.subjects);
     var that = this;
     var results = moviesDouban.subjects;
     subjectUtil.provessSubjects(results);
@@ -59,23 +72,8 @@ Page({
       result: totalMovies,
       hidden: true
     })
-    // wx.setStorage({
-    //   key:'key',
-    //   data:totalMovies
-    // }),
-    // wx.getStorage({
-    //   key: 'key',
-    //   success: function(res) {
-    //     console.log(res.data);
-    //     result: totalMovies;
-    //     hidden: true;
-    //   },
-    // })
-    // this.data.totalCount += 20;
-    // console.log(this.data.totalCount);
-      if(!this.page.flag){
-        this.data.totalCount += 20;
-      }
+    this.data.isFreshing=false;
+    this.data.totalCount += 20;
     wx.stopPullDownRefresh();
   },
 

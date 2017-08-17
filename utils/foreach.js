@@ -45,7 +45,7 @@ function provessSubject(subject) {
   //将数据格式化
   // var text = "名称：" + title + "\n导演:" + directorStr + "\n演员:" + castStr + "\n类型:"
   //  + genreStr + "\n上映年份:" + year + "(中国大陆)" +"\n评分："+ rating +"分"
-  var text = `名称: ${title} \n导演: ${directorStr} \n演员: ${castStr} \n类型: ${genreStr}\n上映年份: ${year} (中国大陆) \n评分: ${rating}`
+  var text = `名称 : ${title} \n导演 : ${directorStr} \n演员 : ${castStr} \n类型 : ${genreStr}\n上映年份 : ${year} \n评分 : ${rating}`
   //拿到格式化的数据
   subject.text = text;
   // console.log(subject.text);
