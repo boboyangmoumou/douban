@@ -1,9 +1,19 @@
  <view class="container2">
-  <!-- <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view> -->
+  <view class="Title">
+    <text>{{movies.title}}</text>   
+  </view>
+  <view class="Countries">
+    <text>{{movies.countries[0]}}</text>
+    <text>{{movies.year}}</text>
+  </view>
+  <view class="original_title">
+    <text>{{movies.original_title}}</text>
+  </view>
+  <view class="movies.rating.average"><text>{{movies.rating.average}}</text></view>
+  <view class="movies.directors[0].name"><text>{{movies.directors[0].name}}</text></view>
+  <view class="movies.carts[0].name"><text>{{movies.carts[0].name}}</text></view>
+  <view class="movies.genres[0]"><text>{{movies.genres[0]}}</text></view>
   <view class="usermotto">
-    <text class="user-motto">111</text>
+    <text class="user-motto">{{movies.summary}}</text>
   </view>
 </view> 

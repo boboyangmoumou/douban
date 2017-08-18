@@ -1,3 +1,5 @@
+var util = require('../../utils/feath.js')
+var subjectUtil = require("../../utils/foreach.js")
 Page({
 
   data: {
@@ -5,16 +7,19 @@ Page({
   },
 
   onLoad: function (options) {
-    var movieId = options.id;
-    console.log(111);
-    console.log(movieId);
-    var dataUrl = "https://api.douban.com/v2/movie/top250"+"movieId";
+    var Id = options.id;
+    console.log(options.id);
+    var dataUrl = "https://api.douban.com/v2/movie/subject/"+Id;
     util.http(dataUrl, this.processDoubanData);
   },
   processDoubanData: function (moviesDouban) {
     var that = this;
-    var movies = moviesDouban.subjects;
+    var movies = moviesDouban;
+    subjectUtil.moreInfo(movies);
     console.log(movies);
+    that.setData({
+      movies:movies
+    })
   },
 
 })

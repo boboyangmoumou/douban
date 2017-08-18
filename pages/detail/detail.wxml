@@ -6,14 +6,15 @@
 </block> -->
 <scroll-view class="grid-container" scroll-top="100" scroll-y="true"
     bindscrolltolower="onscrolltolower" scroll-x="false">
-    <view class="content" catchtap="onMovieTap">
-      <view  wx:for="{{result}}" class="movieInfo">
+    <view class="content" >
+      <view  wx:for="{{result}}" catchtap="onMovieTap" class="movieInfo" data-movieId="{{item.movieId}}">
         <view class="pic">
             <image src="{{item.images.medium}}" class="commandpig"></image>
         </view>
         <view class="movieInfoText">
           <view class="action">
             <text>{{item.text}}</text>
+            <text>{{item.movieId}}</text>
           </view>
         </view>  
       </view>  

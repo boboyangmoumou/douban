@@ -4,6 +4,7 @@ function provessSubjects(subjects){
     this.provessSubject(subject);
   }
 }
+//top 250
 // 获取数据并格式
 function provessSubject(subject) {
 
@@ -20,7 +21,7 @@ function provessSubject(subject) {
     directorStr = directorStr.substring(0, directorStr.length - 2);
   }
   //id
-  var Id = subject.id;
+  var movieId = subject.id;
   //演员信息
   var casts = subject.casts;
   var castStr = "";
@@ -50,10 +51,33 @@ function provessSubject(subject) {
   var text = `名称 : ${title} \n导演 : ${directorStr} \n演员 : ${castStr} \n类型 : ${genreStr}\n上映年份 : ${year} \n评分 : ${rating}`
   //拿到格式化的数据
   subject.text = text;
+  subject.movieId = movieId;
   // console.log(subject.text);
 }
 
+function moreInfo(temp){
+    //标题
+    var Title = temp.title;
+    //地区
+    var countries=temp.countries;
+    var CountriesStr = '';
+    for (var index in countries){
+      CountriesStr = CountriesStr + countries[index]+"/";
+    }
+    //时间
+    var Year = temp.year;
+    //简介
+    summary = temp.summary;
+    //类型
+    Type = temp.genres;
+    var TypeStr='';
+    for (let index in  Type){}
+    console.log(Title);
+}
+
+
 module.exports = {
   provessSubject:provessSubject,
-  provessSubjects:provessSubjects
+  provessSubjects:provessSubjects,
+  moreInfo:moreInfo
 }

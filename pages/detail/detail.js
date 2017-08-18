@@ -63,7 +63,7 @@ Page({
     subjectUtil.provessSubjects(results);
     for (var idx in results){
       var ID1=results[idx].id;
-      console.log(ID1);
+      // console.log(ID1);
     }
     var totalMovies = {}
     if(!this.data.isEmpty){
@@ -82,10 +82,11 @@ Page({
   },
   
   onMovieTap:function(event){
-    // var movieID=event.currentTarget.dataset.result;
-    var movieID = event.currentTarget.dataset.ID1
+
+    var movieId = event.currentTarget.dataset.movieid;
+    // console.log(movieId);
     wx.navigateTo({
-      url: '../moreInfo/moreInfo?id='+movieID,
+      url: '../moreInfo/moreInfo?id='+ movieId,
     })
   }
 })

@@ -12,7 +12,8 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/detail/detail",
         "text": "推荐",
         "iconPath": "pages/assets/img/tj-1.png",
@@ -23,13 +24,13 @@
       "text": "电影",
       "iconPath": "pages/assets/img/dy-1.png",
       "selectedIconPath": "pages/assets/img/dy.png"
-    },
-    {
-      "pagePath": "pages/search/search",
-      "text": "搜索",
-      "iconPath": "pages/assets/img/search-1.png",
-      "selectedIconPath": "pages/assets/img/search.png"
-    }
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "pages/assets/img/search-1.png",
+        "selectedIconPath": "pages/assets/img/search.png"
+      }
     ]
   }
 }
