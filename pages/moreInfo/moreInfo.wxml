@@ -1,19 +1,19 @@
- <view class="container2">
-  <view class="Title">
-    <text>{{movies.title}}</text>   
+<view class="container2">
+  <view class="headerImg1">
+    <image src="{{movies.Image}}" style="width:100%" class="headerImg"></image>
+    <text class="Title">{{movies.Title}}</text>
+    <text class="Area">{{movies.Area}}</text>
+    <view class="Countries">
+      <image src="{{movies.Image}}" class="viewImg"></image>
+    </view> 
+    <view class="originTitle">
+      <text>{{movies.originTitle}}</text>
+    </view>
   </view>
-  <view class="Countries">
-    <text>{{movies.countries[0]}}</text>
-    <text>{{movies.year}}</text>
-  </view>
-  <view class="original_title">
-    <text>{{movies.original_title}}</text>
-  </view>
-  <view class="movies.rating.average"><text>{{movies.rating.average}}</text></view>
-  <view class="movies.directors[0].name"><text>{{movies.directors[0].name}}</text></view>
-  <view class="movies.carts[0].name"><text>{{movies.carts[0].name}}</text></view>
-  <view class="movies.genres[0]"><text>{{movies.genres[0]}}</text></view>
-  <view class="usermotto">
-    <text class="user-motto">{{movies.summary}}</text>
-  </view>
+    <view class="Detile">
+      <text>{{movies.moviesText}}</text>   
+    </view>
+    <view class="summary">
+      <text>{{movies.summary}}</text>
+    </view>
 </view> 
