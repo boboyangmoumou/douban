@@ -7,7 +7,7 @@
       <image src="{{movies.Image}}" class="viewImg"></image>
     </view> 
     <view class="originTitle">
-      <text>{{movies.originTitle}}</text>
+      <text class="text">{{movies.originTitle}}</text>
     </view>
   </view>
     <view class="Detile">

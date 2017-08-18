@@ -34,3 +34,11 @@
   top: 140rpx;
   right: 34rpx;
 }
+.originTitle{
+  text-indent: 20rpx; 
+}
+.originTitle .text{
+  font-size: 25rpx;
+  font-family: "微软雅黑";
+  color: #333;
+}
