@@ -1,0 +1,20 @@
+.search-content{
+  width: 98%;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1px solid #333;
+  border-radius: 8rpx;
+  position: relative;
+  text-indent: 50rpx;
+  margin: 0 auto;
+}
+.search-icon{
+  position: absolute;
+  top: 14rpx;
+  left: 10rpx;
+}
+.search-cancel{
+  position:absolute;
+  top:12rpx;
+  right:14rpx;
+}

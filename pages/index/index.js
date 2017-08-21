@@ -5,9 +5,10 @@ var app = getApp()
 Page({
   data: {
     imgUrls:[
-      "../assets/img/001.jpg",
-      "../assets/img/002.jpg",
-      "../assets/img/003.jpg",
+      // "../assets/img/001.jpg",
+      "https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2485983612.jpg",
+      "https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2494948513.jpg",
+      "https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2493892158.jpg",
     ],
     indicatorDots:true,
     autoplay:true,
@@ -32,7 +33,7 @@ Page({
         var subjects = res.data.subjects;
         // that.processDouban(res.data);
         subjectUtil.provessSubjects(subjects);
-        console.log();
+        console.log(res.data.subjects);
         that.setData({
            movies:subjects,
            hidden:true

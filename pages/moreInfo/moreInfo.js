@@ -16,7 +16,7 @@ Page({
     var that = this;
     var movies = moviesDouban;
     subjectUtil.moreInfo(movies);
-    // console.log(movies);
+    console.log(movies);
     that.setData({
       movies:movies,
       hidden: true
