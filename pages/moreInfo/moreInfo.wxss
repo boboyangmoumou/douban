@@ -34,11 +34,41 @@
   top: 140rpx;
   right: 34rpx;
 }
+.originTitle,.movieIntroduce{
+  margin: 12rpx 0;
+}
+.originTitle .text, .movieIntroduce{
+  font-size: 30rpx;
+}
+.mainInfo{
+  padding: 20rpx;
+}
 .originTitle{
   text-indent: 20rpx; 
 }
-.originTitle .text{
-  font-size: 25rpx;
+.sameStyle{
+  font-size: 27rpx;
   font-family: "微软雅黑";
   color: #333;
 }
+.Line{
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+ }
+ .mainInfo1{
+   display: flex;
+   padding: 3rpx 0 3rpx 6rpx;
+ }
+  .movieImagesPic{
+    margin-right:6rpx; 
+    text-align:center;
+  }
+ .movieImagesPic image{
+   width: 180rpx;
+   height: 260rpx;
+ }
+ .movieImagesPic text{
+  font-size: 24rpx;
+  font-family: "微软雅黑";
+  color: #333;
+ }

@@ -7,13 +7,31 @@
       <image src="{{movies.Image}}" class="viewImg"></image>
     </view> 
     <view class="originTitle">
-      <text class="text">{{movies.originTitle}}</text>
+      <text class="text sameStyle">{{movies.originTitle}}</text>
     </view>
   </view>
-    <view class="Detile">
-      <text>{{movies.moviesText}}</text>   
+  <view class="mainInfo">
+      <view class="Detile">
+        <text class="sameStyle">{{movies.moviesText}}</text>   
+      </view>
+  </view>
+  <view class="Line"></view>
+  <view class="mainInfo">
+      <view class="movieIntroduce">剧情简介:</view>
+      <view class="summary">
+        <text class="sameStyle">{{movies.summary}}</text>
+      </view>
+   </view>
+   <view class="Line"></view>
+   <view class="mainInfo1">
+    <view class="movieImagesPic" wx:for="{{movies.img}}">
+        <image src="{{item.avatars.small}}"></image>  
+        <text>{{item.name}}</text>
     </view>
-    <view class="summary">
-      <text>{{movies.summary}}</text>
-    </view>
+   </view>
 </view> 
+ <view class="bodyView">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+    加载中...
+    </loading>
+  </view>

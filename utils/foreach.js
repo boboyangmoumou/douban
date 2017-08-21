@@ -4,6 +4,8 @@ function provessSubjects(subjects){
     this.provessSubject(subject);
   }
 }
+
+
 //top 250
 // 获取数据并格式
 function provessSubject(subject) {
@@ -48,7 +50,7 @@ function provessSubject(subject) {
   //将数据格式化
   // var text = "名称：" + title + "\n导演:" + directorStr + "\n演员:" + castStr + "\n类型:"
   //  + genreStr + "\n上映年份:" + year + "(中国大陆)" +"\n评分："+ rating +"分"
-  var text = `名称 : ${title} \n导演 : ${directorStr} \n演员 : ${castStr} \n类型 : ${genreStr}\n上映年份 : ${year} \n评分 : ${rating}`
+  var text = `名称 : ${title} \n导演 : ${directorStr} \n演员 : ${castStr} \n类型 : ${genreStr} \n上映年份 : ${year} \n评分 : ${rating}`
   //拿到格式化的数据
   subject.text = text;
   subject.movieId = movieId;
@@ -93,13 +95,21 @@ function moreInfo(temp){
     }
     //演员
     var castsStr='';
+    var moviesImages='';
+    var IMG=[];
     var casts = temp.casts;
     for(let index in temp.casts){
       castsStr = castsStr + casts[index].name+ "/";
+      moviesImages = casts[index];
+      IMG.push(moviesImages);
     }
+    temp.img=IMG;
+    console.log(temp.img);
     if(castsStr != ""){
       castsStr = castsStr.substring(0, castsStr.length -1);
     }
+
+
 
     //导演
     var directors = temp.directors;
@@ -111,8 +121,8 @@ function moreInfo(temp){
       directorsStr = directorsStr.substring(0,directorsStr.length - 1);
     }
     var moviesText = `评分: ${source} \n类型: ${TypeStr} \n演员: ${castsStr} \n导演: ${directorsStr}`
-    temp.moviesText = moviesText;
-    console.log(moviesText);
+    temp.moviesText = `${moviesText}`;
+    // console.log(moviesText);
     //图片
     var Image = temp.images.large;
     temp.Image = Image;
